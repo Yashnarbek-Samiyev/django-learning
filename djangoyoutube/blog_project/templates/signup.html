@@ -1,0 +1,8 @@
+{% extends 'base.html'%} {% block content %}
+
+<h1 style="color: red">Ruyxatdan o'tish</h1>
+<form method="post">
+  {% csrf_token %} {{ form.as_p }}
+  <button type="submit">Yuborish</button>
+</form>
+{% endblock content%}
