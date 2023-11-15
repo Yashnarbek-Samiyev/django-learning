@@ -2,8 +2,8 @@
 Ro'yxatdan utish {% endblock title%} {% block content%}
 <h2 class="text-success">Ro'yxatdan o'tish</h2>
 <form method="post">
-  {% csrf_token %} {{ form|crispy}}
+  {% csrf_token %} {{form | crispy}}
 
   <button type="submit" class="btn btn-success">Ro'yxatdan o'tish</button>
 </form>
-{% endblock content%}
+{% endblock %}

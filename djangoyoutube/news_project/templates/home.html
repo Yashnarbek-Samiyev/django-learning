@@ -1,10 +1,16 @@
-{% extends "base.html" %} {% block title%} Bosh sahifa {% endblock title %} {%
-block content %} {% if user.is_authenticated%} {{user.username}}, saytga xush
-kelibsiz!
-<p><a href="{% url 'logout'%}">Log out</a></p>
-{% else %}
-<p>Siz hali saytga kirmagansiz!</p>
-<a href="{% url 'login'%}">Log In</a>
-<a href="{% url 'signup'%}">Sign Up</a>
-
-{% endif %} {% endblock content%}
+{% extends "base.html" %} {% block title%} Bosh sahifa {% endblock title %}
+{%block content %}
+<div class="jumbotron text-center">
+  <h1 class="display-4">Yangiliklar sayti</h1>
+  <p class="lead">Eng tezkor yangiliklar bizning saytimizda</p>
+  <p class="lead">
+    <a
+      class="btn btn-primary btn-lg"
+      href="{% url 'article_list' %}"
+      role="button"
+      title="Barcha maqolalarni ko'rish"
+      >Barcha maqolalarni kurish
+    </a>
+  </p>
+</div>
+{% endblock %}

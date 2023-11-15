@@ -30,6 +30,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'users.apps.UsersConfig',  # news
     'pages.apps.PagesConfig',  # pages
+    'articles.apps.ArticlesConfig',  # articles
+
 
     #  3th party apps
     'crispy_forms',  # new
@@ -102,7 +104,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tashkent'
 
 USE_I18N = True
 
@@ -125,3 +127,6 @@ LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

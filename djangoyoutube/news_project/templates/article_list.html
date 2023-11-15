@@ -1,0 +1,54 @@
+{% extends "base.html" %} {% block title %} Barcha maqolalar shu yerda
+{%endblock title %} {% block content%} {% for article in object_list%}
+
+<div class="card mb-3">
+  <div class="card-header">
+    <a href="{% url 'article_detail' article.pk%}">
+      <span class="font-weight-bold">{{article.title}}</span></a
+    >
+    <p class="text-muted">
+      {{article.author}} tomonidan yozildi | {{article.date}}
+    </p>
+  </div>
+  <div class="card-body">
+    <p class="card-text">{{article.body}}</p>
+    <a href="{% url 'article_detail' article.pk %}" class="btn btn-primary"
+      >Batafsil</a
+    >
+  </div>
+  <div class="card-footer text-center text-muted">
+    <a href="{% url 'article_edit' article.pk%}" class="btn btn-success"
+      >Tahrirlash</a
+    >|
+    <a href="{% url 'article_delete' article.pk%}" class="btn btn-danger"
+      >O'chirish</a
+    >
+  </div>
+</div>
+<br />
+{% endfor %}
+
+<div class="pagination">
+  <span class="step-links">
+    {% if page_obj.has_previous %}
+    <a href="?page=1" class="btn btn-info">&laquo; birinchi</a>
+    <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-success"
+      >oldingi</a
+    >
+    {% endif %}
+
+    <span class="current">
+      Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+    </span>
+
+    {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}" class="btn btn-info"
+      >keyingi</a
+    >
+    <a href="?page={{ page_obj.paginator.num_pages }}" class="btn btn-danger"
+      >oxirgi &raquo;</a
+    >
+    {% endif %}
+  </span>
+  {% endblock %}
+</div>
